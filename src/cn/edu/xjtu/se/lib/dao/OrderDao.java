@@ -1,0 +1,14 @@
+package dao;
+
+import bean.Order;
+
+public interface OrderDao {
+	//增加一个借书记录
+	Order addOrder(Order o);
+	//通过isbn及idCard找到记录删除
+	boolean removeOrder(String isbn, String idCard);
+	//通过isbn和idCard查找借书记录
+	Order searchOrder(String isbn, String idCard);
+	//更新借书状态
+	boolean updateStatus(String isbn, String idCard, String status);
+}
