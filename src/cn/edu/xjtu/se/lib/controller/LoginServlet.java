@@ -2,7 +2,10 @@ package cn.edu.xjtu.se.lib.controller;
 
 import cn.edu.xjtu.se.lib.dao.*;
 import cn.edu.xjtu.se.lib.entity.User;
+import cn.edu.xjtu.se.lib.unity.StrongPsw;
+
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,9 +54,16 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		String idCard = request.getParameter("idCard");
-		String password=request.getParameter("password");
+		String strong = request.getParameter("password");
+		String password = null;
+		try {
+			password = StrongPsw.getMD5(strong);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		user = userdao.searchUserByIdCard(idCard);
-		
+		 
 		if( user!=null )
 		{
 			if (password.equals(user.getPassword())) {
