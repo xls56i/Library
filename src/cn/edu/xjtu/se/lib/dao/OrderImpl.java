@@ -16,7 +16,8 @@ public class OrderImpl implements OrderDao {
 	private Statement st = null;
 	private PreparedStatement pst = null;
 	private ResultSet rs = null;
-	@Override
+	
+	//@Override
 	public Order addOrder(Order o) {
 		// TODO Auto-generated method stub
 		String idCard = o.getIdCard();
@@ -56,7 +57,7 @@ public class OrderImpl implements OrderDao {
 		return o;
 	}
 
-	@Override
+	//@Override
 	public boolean removeOrder(String isbn, String idCard) {
 		// TODO Auto-generated method stub
 		boolean flag = true;
@@ -85,7 +86,7 @@ public class OrderImpl implements OrderDao {
 		return flag;
 	}
 
-	@Override
+	//@Override
 	public Order searchOrder(String isbn, String idCard) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -118,7 +119,7 @@ public class OrderImpl implements OrderDao {
 		return o;
 	}
 
-	@Override
+	//@Override
 	public boolean updateStatus(String isbn, String idCard, String status) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();

@@ -19,7 +19,7 @@ public class BookImpl implements BookDao {
 	private PreparedStatement pst = null;
 	private ResultSet rs = null;
 	
-	@Override
+	//@Override
 	public Book addBook(Book book) {
 		// TODO Auto-generated method stub
 		String isbn = book.getIsbn();
@@ -63,7 +63,7 @@ public class BookImpl implements BookDao {
 		return book;
 	}
 
-	@Override
+	//@Override
 	public boolean removeBook(Book book) {
 		// TODO Auto-generated method stub
 		boolean flag = true;
@@ -91,7 +91,7 @@ public class BookImpl implements BookDao {
 		return flag;
 	}
 
-	@Override
+//	@Override
 	public Book updateBook(Book book) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -119,7 +119,7 @@ public class BookImpl implements BookDao {
 		return book;
 	}
 
-	@Override
+//	@Override
 	public Book searchByIsbn(String isbn) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -155,7 +155,7 @@ public class BookImpl implements BookDao {
 		return b;
 	}
 
-	@Override
+//	@Override
 	public List<Book> searchByBookName(String bookName) {
 		// TODO Auto-generated method stub
 		ArrayList<Book> result = new ArrayList<Book>();
@@ -164,7 +164,7 @@ public class BookImpl implements BookDao {
 		return result;
 	}
 
-	@Override
+//	@Override
 	public List<Book> searchByAuthor(String author) {
 		// TODO Auto-generated method stub
 		ArrayList<Book> result = new ArrayList<Book>();
@@ -173,7 +173,7 @@ public class BookImpl implements BookDao {
 		return result;
 	}
 
-	@Override
+//	@Override
 	public List<Order> searchByStu(String idCard) {
 		// TODO Auto-generated method stub
 		ArrayList<Order> result = new ArrayList<Order>();
