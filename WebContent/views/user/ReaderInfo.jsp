@@ -6,6 +6,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <% User user=(User)session.getAttribute("user"); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn">
 <head>
@@ -31,37 +32,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<th>编号</th>
 							<th>图书</th>
 							<th>借阅时间</th>
+							<th>归还时间</th>
 							<th>状态</th>
 						</tr>
 					</thead>
 					<tbody>
+<% List infoborrow=(List)session.getAttribute("infoborrow");
+String[] sty={"success","error","warning","info"};
+%>
+<%
+for(int i=1;i<infoborrow.size();i++){
+	String[] info=infoborrow.get(i).toString().split("\\[|,|\\]");
 
-						<tr class="success">
-							<td>1</td>
-							<td>GCC</td>
-							<td>2016/11/11</td>
-							<td>Normal</td>
-						</tr>
-						<tr class="error">
-							<td>2</td>
-							<td>HTML5</td>
-							<td>2016/11/11</td>
-							<td>Normal</td>
-						</tr>
-						<tr class="warning">
-							<td>3</td>
-							<td>CSS</td>
-							<td>2016/11/11</td>
-							<td>Normal</td>
-						</tr>
-						<tr class="info">
-							<td>4</td>
-							<td>JavaScript</td>
-							<td>2016/1/1</td>
-							<td>Declined</td>
-						</tr>
+%>
+	<tr class=<%= sty[i%4] %>>
+	<td><%= i %></td>
+	<td><%= info[3] %></td>	
+	<td><%= info[4].split(" ")[1] %></td>
+	<td><%= info[5].split(" ")[1] %></td>
+	<td><%= info[6] %></td>
+    </tr>
+
+<%
+}
+%>
+
+						
 					</tbody>
 				</table>
+				
 				<h1 style="text-align: center">图书推荐</h1>
 				<div class="row">
 					<div class="col-md-4">

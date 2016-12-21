@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理界面</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/agency.min.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+  </head>
+  <body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="jumbotron">
+				
+			</div>
+			<table class="table table-bordered table-hover">
+			<h1 style="text-align:center">读者管理</h1>
+				<thead>
+					<tr>
+						<th>
+							读者姓名
+						</th>
+						<th>
+							借书数量   
+						</th>
+						<th>
+							读者状态
+						</th>
+						<th>
+							借书详情
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr class="success">
+						<td>
+							张三
+						</td>
+						<td>
+							1
+						</td>
+						<td>
+							<select name="select" id="select_k1" class="xla_k">
+								<option value="Normal" selected>Normal</option>
+								<option value="Declined">Declined</option>
+							</select>
+						</td>
+						<td>
+							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
+						</td>
+					</tr>
+					<tr class="error">
+						<td>
+							李四
+						</td>
+						<td>
+							2
+						</td>
+						<td>
+							<select name="select" id="select_k1" class="xla_k">
+								<option value="Normal" selected>Normal</option>
+								<option value="Declined">Declined</option>
+							</select>
+						</td>
+						<td>
+							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							王五
+						</td>
+						<td>
+							3
+						</td>
+						<td>
+							<select name="select" id="select_k1" class="xla_k">
+								<option value="Normal" selected>Normal</option>
+								<option value="Declined">Declined</option>
+							</select>
+						</td>
+						<td>
+							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
+						</td>
+					</tr>
+					<tr class="info">
+						<td>
+							赵六
+						</td>
+						<td>
+							4
+						</td>
+						<td>
+							<select name="select" id="select_k1" class="xla_k">
+								<option value="Normal" selected>Normal</option>
+								<option value="Declined">Declined</option>
+							</select>
+						</td>
+						<td>
+							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							<a href=# style="color:red">显示更多...</a>
+						</td>
+						<td>
+							......
+						</td>
+						<td>
+							......
+						</td>
+						<td>
+							......
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table table-bordered table-hover">
+			<h1 style="text-align:center">图书管理</h1>
+			    <thead>
+					<tr>
+						<th>
+							书名
+						</th>
+						<th>
+							ISBN号
+						</th>
+						<th>
+							数量
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr class="success">
+						<td>
+							C艹 Primer
+						</td>
+						<td>
+							9787111327288
+						</td>
+						<td>
+							<input class="min" name="" type="button" value="-" />
+							<input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" />
+							<input class="add" name="" type="button" value="+" />
+  
+<!--相关Java代码
+$(".add").click(function() {
+        // $(this).prev() 就是当前元素的前一个元素，即 text_box
+        $(this).prev().val(parseInt($(this).prev().val()) + 1);
+        setTotal();
+});
+  
+$(".min").click(function() {
+        // $(this).next() 就是当前元素的下一个元素，即 text_box
+        $(this).next().val(parseInt($(this).next().val()) - 1);
+        setTotal();
+});
+-->
+						</td>
+						<td>
+							<button onclick="" style="color:orange">删除</button>
+						</td>
+					</tr>
+					<tr class="error">
+						<td>
+							X86 PC汇编语言设计
+						</td>
+						<td>
+							9787111327288
+						</td>
+						<td>
+							<input class="min" name="" type="button" value="-" />
+							<input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" />
+							<input class="add" name="" type="button" value="+" />
+						</td>
+						<td>
+							<button onclick="" style="color:orange">删除</button>
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							算法导论
+						</td>
+						<td>
+							9787111327288
+						</td>
+						<td>
+							<input class="min" name="" type="button" value="-" />
+							<input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" />
+							<input class="add" name="" type="button" value="+" />
+						</td>
+						<td>
+							<button onclick="" style="color:orange">删除</button>
+						</td>
+					</tr>
+					<tr class="info">
+						<td>
+							IT项目管理
+						</td>
+						<td>
+							9787111327288
+						</td>
+						<td>
+							<input class="min" name="" type="button" value="-" />
+							<input class="text_box" name="goodnum" type="text" value="1" style="width:25px;" />
+							<input class="add" name="" type="button" value="+" />
+						</td>
+						<td>
+							<button onclick="" style="color:orange">删除</button>
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							......
+						</td>
+						<td>
+							......
+						</td>
+						<td>
+							......
+						</td>
+						<td>
+							<button data-toggle="modal" href="#myModal" style="color:blue">添加新书</button>
+							<!-- 模态框（Modal） -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button>
+											<h4 class="modal-title" id="myModalLabel">
+												添加书籍信息
+											</h4>
+										</div>
+										<div class="modal-body">
+											<table class="table">
+											
+											<tbody>
+												<tr>
+													<td>
+														书&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：<input type="text" name=bookName>
+													</td>
+													<td>
+														ISBN：<input type="text" name=isbn>
+													</td>
+													
+												</tr>
+												<tr>
+													<td>
+														数&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp量：<input type="text" name=publish>
+													</td>
+													<td>
+														作者：<input type="text" name=author>
+													</td>
+													
+												</tr>
+												<tr>
+													<td>
+														出&nbsp&nbsp版&nbsp&nbsp社：<input type="text" name=addNumber>
+													</td>
+													<td>
+														书籍图片：<input type="file" name=picture>
+													</td>
+													
+												</tr>
+												
+											</tbody>
+											</table>
+											&nbsp&nbsp描述：<br>&nbsp&nbsp<textarea name="describe" style="width:480px;height:50px;">这里写内容</textarea>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+											</button>
+											<button type="button" class="btn btn-primary">
+												提交更改
+											</button>
+										</div>
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal -->
+							</div>
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							<a href=# style="color:red">显示更多...</a>
+						</td>
+						<td>
+							......
+						</td>
+						<td>
+							......
+						</td>
+						<td>
+							......
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">XJTU</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="SearchHere" />
+						</div> <button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+							<!-->用session显示输出名字<-->
+							 <li><a href="#">欢迎你:XXX</a></li>
+							 <li><a href="Index.html">我的信息</a></li>
+							 <li><a href="Index.html">注销</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+</div>
+			
+			
+			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">XJTU</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="SearchHere" />
+						</div> <button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+							<!-->用session显示输出名字<-->
+							 <li><a href="#">欢迎你:XXX</a></li>
+							 <li><a href="Index.html">我的信息</a></li>
+							 <li><a href="Index.html">注销</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; IT Project Management 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Don't click!</a>
+                        </li>
+                        <li><a href="#">Roll up please</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
