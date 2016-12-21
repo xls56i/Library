@@ -59,6 +59,7 @@ public class LoginServlet extends HttpServlet {
 			if (password.equals(user.getPassword())) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
+				//用户借阅信息ArrayList
 				request.getRequestDispatcher("views/user/ReaderInfo.jsp").forward(request, response);
 			}
 			else{

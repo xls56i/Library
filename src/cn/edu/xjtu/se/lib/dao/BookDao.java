@@ -10,7 +10,7 @@ public interface BookDao {
 	Book addBook(Book book);
 	//删除书籍
 	boolean removeBook(Book book);
-    //更新书籍
+    //更新书籍（改变总书籍和课结束及数量）
 	Book updateBook(Book book);
 	//通过isbn搜索书籍
 	Book searchByIsbn(String isbn);

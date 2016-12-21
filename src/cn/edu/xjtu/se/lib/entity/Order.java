@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Order {
 	private int UserBookId;
-	private int idCard;
+	private String idCard;
 	private String isbn;
 	private Date borrowTime;
 	private Date returnTime;
@@ -15,10 +15,10 @@ public class Order {
 	public void setUserBookId(int userBookId) {
 		UserBookId = userBookId;
 	}
-	public int getIdCard() {
+	public String getIdCard() {
 		return idCard;
 	}
-	public void setIdCard(int idCard) {
+	public void setIdCard(String idCard) {
 		this.idCard = idCard;
 	}
 	public String getIsbn() {
