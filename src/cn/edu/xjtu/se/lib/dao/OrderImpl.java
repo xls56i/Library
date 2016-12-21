@@ -1,4 +1,4 @@
-package dao;
+package cn.edu.xjtu.se.lib.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import bean.Book;
-import bean.Order;
+import cn.edu.xjtu.se.lib.entity.Book;
+import cn.edu.xjtu.se.lib.entity.Order;
 
 public class OrderImpl implements OrderDao {
 	//数据库连接对象

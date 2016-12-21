@@ -1,6 +1,6 @@
-package dao;
+package cn.edu.xjtu.se.lib.dao;
 
-import bean.Order;
+import cn.edu.xjtu.se.lib.entity.Order;
 
 public interface OrderDao {
 	//增加一个借书记录
