@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Order {
 	private int UserBookId;
 	private String idCard;
+	
 	private String isbn;
 	private Date borrowTime;
 	private Date returnTime;

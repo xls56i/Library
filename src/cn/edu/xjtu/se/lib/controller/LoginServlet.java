@@ -2,7 +2,12 @@ package cn.edu.xjtu.se.lib.controller;
 
 import cn.edu.xjtu.se.lib.dao.*;
 import cn.edu.xjtu.se.lib.entity.User;
+import cn.edu.xjtu.se.lib.entity.Admin;
+import cn.edu.xjtu.se.lib.entity.Book;
+import cn.edu.xjtu.se.lib.entity.Order;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,26 +52,54 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		User user = null;
+		Admin admin = null;
 		UserDao userdao=new UserImpl();
-		
+		AdminDao admindao=new AdminImpl();
 		
 		String idCard = request.getParameter("idCard");
 		String password=request.getParameter("password");
-		user = userdao.searchUserByIdCard(idCard);
 		
+		
+		user = userdao.searchUserByIdCard(idCard);
+		admin = admindao.searchByAdminName(idCard);
+		System.out.println(admin.getAdminName());
 		if( user!=null )
 		{
 			if (password.equals(user.getPassword())) {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				//用户借阅信息ArrayList
+				BookDao bookdao=new BookImpl();
+				List<Order> infoborrow;
+				infoborrow=bookdao.searchByStu(user.getIdCard());
+				
+				session.setAttribute("infoborrow", infoborrow);
 				request.getRequestDispatcher("views/user/ReaderInfo.jsp").forward(request, response);
+				
 			}
 			else{
 				System.out.println("密码错误");
 				request.setAttribute("error", "fail");
 			    request.getRequestDispatcher("views/user/login.jsp").forward(request, response);
 			}
+		}
+	
+		else if(admin!=null){
+			System.out.println(admin.getPassword());
+			if (password.equals(admin.getPassword())) {
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("user", admin);
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+				
+			}
+			else{
+				System.out.println("密码错误");
+				request.setAttribute("error", "fail");
+			    request.getRequestDispatcher("views/user/login.jsp").forward(request, response);
+			}
+			
+			
 		}
 		
 		else{

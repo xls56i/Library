@@ -190,6 +190,7 @@ public class AdminImpl implements AdminDao {
 				a.setAdminName(rs.getString("adminName"));
 				a.setName(rs.getString("name"));
 				a.setPhoneNumber(rs.getString("phoneNumber"));
+				a.setPassword(rs.getString("password"));
 				a.setPriority(rs.getString("priority"));
 			}
 		} catch (SQLException e) {
