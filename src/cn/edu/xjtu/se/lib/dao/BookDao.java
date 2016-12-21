@@ -1,9 +1,9 @@
-package dao;
+package cn.edu.xjtu.se.lib.dao;
 
 import java.util.List;
 
-import bean.Book;
-import bean.Order;
+import cn.edu.xjtu.se.lib.entity.Book;
+import cn.edu.xjtu.se.lib.entity.Order;
 
 public interface BookDao {
 	//增加书籍

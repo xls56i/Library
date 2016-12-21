@@ -1,4 +1,4 @@
-package bean;
+package cn.edu.xjtu.se.lib.entity;
 
 import java.sql.Date;
 

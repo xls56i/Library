@@ -1,4 +1,4 @@
-package dao;
+package cn.edu.xjtu.se.lib.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.Book;
-import bean.Order;
-import bean.User;
+import cn.edu.xjtu.se.lib.entity.Book;
+import cn.edu.xjtu.se.lib.entity.Order;
+import cn.edu.xjtu.se.lib.entity.User;
 
 public class BookImpl implements BookDao {
 	//数据库连接对象
