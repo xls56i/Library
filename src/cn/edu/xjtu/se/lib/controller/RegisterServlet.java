@@ -1,8 +1,6 @@
 package cn.edu.xjtu.se.lib.controller;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.xjtu.se.lib.dao.*;
 import cn.edu.xjtu.se.lib.entity.User;
-import cn.edu.xjtu.se.lib.unity.StrongPsw;
 
 
 /**
@@ -55,15 +52,7 @@ public class RegisterServlet extends HttpServlet {
 		user.setIdCard(request.getParameter("idCard"));//学号
 		user.setName(request.getParameter("name"));
 		user.setPhone(request.getParameter("phone"));
-		String psw = request.getParameter("password");
-		String strong = null;
-		try {
-			strong = StrongPsw.getMD5(psw);
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		user.setPassword(strong);
+		user.setPassword(request.getParameter("password"));
 		user.setTotal_num(10);//最多借书数量
 		user.setAlready_num(0);
 		user.setStatus("normal"); //normal limit 

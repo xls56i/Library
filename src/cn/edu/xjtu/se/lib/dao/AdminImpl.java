@@ -16,7 +16,7 @@ public class AdminImpl implements AdminDao {
 	private PreparedStatement pst = null;
 	private ResultSet rs = null;
 	
-	//@Override
+	@Override
 	public Admin addAdmin(Admin a) {
 		// TODO Auto-generated method stub
 		String adminName = a.getAdminName();
@@ -55,7 +55,7 @@ public class AdminImpl implements AdminDao {
 		return a;
 	}
 
-	//@Override
+	@Override
 	public boolean removeAdmin(Admin a) {
 		// TODO Auto-generated method stub
 		boolean flag = true;
@@ -83,7 +83,7 @@ public class AdminImpl implements AdminDao {
 		return flag;
 	}
 
-//	@Override
+	@Override
 	public Admin updateAdminPwd(Admin a) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -112,7 +112,7 @@ public class AdminImpl implements AdminDao {
 
 	}
 	
-//	@Override
+	@Override
 	public Admin updateAdminPhone(Admin a) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -142,7 +142,7 @@ public class AdminImpl implements AdminDao {
 	}
 
 	
-//	@Override
+	@Override
 	public Admin updateAdminPrio(Admin a) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -170,7 +170,7 @@ public class AdminImpl implements AdminDao {
 		return a;
 
 	}
-//	@Override
+	@Override
 	public Admin searchByAdminName(String adminName) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();

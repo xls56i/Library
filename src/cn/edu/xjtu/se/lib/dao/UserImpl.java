@@ -23,7 +23,7 @@ public class UserImpl implements UserDao {
 		private PreparedStatement pst = null;
 		private ResultSet rs = null;
 	
-	//@Override
+	@Override
 	public User addUser(User u) {
 		// TODO Auto-generated method stub
 		String idCard = u.getIdCard();
@@ -65,7 +65,7 @@ public class UserImpl implements UserDao {
 		return u;
 	}
 
-	//@Override
+	@Override
 	public boolean removeUser(User u) {
 		// TODO Auto-generated method stub
 		boolean flag = true;
@@ -93,7 +93,7 @@ public class UserImpl implements UserDao {
 		return flag;
 	}
 
-	//@Override
+	@Override
 	public User updatePsw(User u) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -122,7 +122,7 @@ public class UserImpl implements UserDao {
 
 	}
 	
-//	@Override
+	@Override
 	public User updateStatus(User u) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -150,7 +150,7 @@ public class UserImpl implements UserDao {
 		return u;
 
 	}
-//	@Override
+	@Override
 	public User updateNum(User u) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -178,7 +178,7 @@ public class UserImpl implements UserDao {
 		return u;
 
 	}
-//	@Override
+	@Override
 	public User searchUserByIdCard(String idCard) {
 		// TODO Auto-generated method stub
 		Connection conn=DBConnection.getConnection();
@@ -212,7 +212,7 @@ public class UserImpl implements UserDao {
 		return u;
 	}
 
-//	@Override
+	@Override
 	public ArrayList<Order> searchUserByIsbn(String isbn) {
 		// TODO Auto-generated method stub
 		ArrayList<Order> result=new ArrayList<Order>();
