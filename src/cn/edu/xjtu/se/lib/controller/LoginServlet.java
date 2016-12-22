@@ -64,8 +64,8 @@ public class LoginServlet extends HttpServlet {
 		AdminDao admindao=new AdminImpl();
 		
 		String idCard = request.getParameter("idCard");
-
-    String strong = request.getParameter("password");
+        String strong = request.getParameter("password");
+        
 		String password = null;
 		try {
 			password = StrongPsw.getMD5(strong);
@@ -73,15 +73,9 @@ public class LoginServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		user = userdao.searchUserByIdCard(idCard);
-		 
-
-		String password=request.getParameter("password");
-		
 		
 		user = userdao.searchUserByIdCard(idCard);
 		admin = admindao.searchByAdminName(idCard);
-		System.out.println(admin.getAdminName());
 
 		if( user!=null )
 		{
@@ -110,7 +104,7 @@ public class LoginServlet extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("user", admin);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("/ManagerServlet").forward(request, response);
 				
 			}
 			else{
