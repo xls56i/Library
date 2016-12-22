@@ -21,4 +21,6 @@ public interface UserDao {
 	User searchUserByIdCard(String idCard);
 	//通过isbn搜索借阅订单
 	ArrayList<Order> searchUserByIsbn(String isbn);
+	//显示所有用户信息
+	ArrayList<User> displayAllUser();
 }

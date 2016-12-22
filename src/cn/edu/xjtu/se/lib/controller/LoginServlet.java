@@ -104,7 +104,7 @@ public class LoginServlet extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("user", admin);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("/ManagerServlet").forward(request, response);
 				
 			}
 			else{

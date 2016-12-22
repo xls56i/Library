@@ -220,5 +220,17 @@ public class UserImpl implements UserDao {
 		result = new QueryList().queryReturnList(sql);
 		return result;
 	}
+	
+	@Override
+	public ArrayList<User> displayAllUser() {
+	// TODO 自动生成的方法存根
+		ArrayList<User> us = new ArrayList<User>();
+		String sql = "select * from user";
+		us = new QueryList().queryReturnList(sql);
+		return us;
+	}
+	
+	
+	
 
 }

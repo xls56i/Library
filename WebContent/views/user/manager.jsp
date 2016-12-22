@@ -1,13 +1,23 @@
-<!DOCTYPE html>
+<%@page import="cn.edu.xjtu.se.lib.entity.User"%>
+<%@ page language="java" import="java.util.*"
+	contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page import="cn.edu.xjtu.se.lib.entity.*"%> 
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<% Admin admin=(Admin)session.getAttribute("user"); %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <base href="<%=basePath%>">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理界面</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/agency.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="static/css/agency.min.css" rel="stylesheet">
 	
 	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -25,6 +35,10 @@
 			<h1 style="text-align:center">读者管理</h1>
 				<thead>
 					<tr>
+					    <th>
+							读者学号
+						</th>
+					
 						<th>
 							读者姓名
 						</th>
@@ -40,75 +54,53 @@
 					</tr>
 				</thead>
 				<tbody>
-
-					<tr class="success">
-						<td>
-							张三
+<% ArrayList users=(ArrayList)session.getAttribute("users");
+ArrayList us = null;
+String[] sty={"success","error","warning","info"};
+%>
+	<%
+String tr=null;
+String select=null;
+for(int i=1;i<users.size();i++){
+	//String[] info=users.get(i).toString().split("\\[|,|\\]");
+	us = (ArrayList)users.get(i);
+	tr="stuid"+i;
+    select="select"+i;
+    //tr="stuid";
+    //select="select";
+%>	
+					<tr class="success"  class = <%= tr %>>
+					    <td id = <%= tr %> >
+							<%-- <%= info[1] %> --%>
+							<%=us.get(0) %>
 						</td>
 						<td>
-							1
+							<%-- <%= info[3] %> --%>
+							<%=us.get(2) %>
 						</td>
 						<td>
-							<select name="select" id="select_k1" class="xla_k">
-								<option value="Normal" selected>Normal</option>
-								<option value="Declined">Declined</option>
+							<%-- <%= info[6] %> --%>
+							<%=us.get(5) %>
+						</td>
+						<td>
+							<select name="select" id=<%= select %> class="select">
+							    <%if(us.get(6).equals("normal")) {
+							    	
+							    %>
+							    <option value="normal" selected id="Nor" >Normal</option>
+								<option value="declined" id="Dec">Declined</option>
+							    <%} else {%>
+								<option value="normal" >Normal</option>
+								<option value="declined" selected>Declined</option>
+								<% } %>
 							</select>
 						</td>
+						
 						<td>
-							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
+							&nbsp&nbsp&nbsp&nbsp<button style="color:orange"><a href="views/user/ReaderInfo.jsp">详情</a></button>
 						</td>
 					</tr>
-					<tr class="error">
-						<td>
-							李四
-						</td>
-						<td>
-							2
-						</td>
-						<td>
-							<select name="select" id="select_k1" class="xla_k">
-								<option value="Normal" selected>Normal</option>
-								<option value="Declined">Declined</option>
-							</select>
-						</td>
-						<td>
-							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
-						</td>
-					</tr>
-					<tr class="warning">
-						<td>
-							王五
-						</td>
-						<td>
-							3
-						</td>
-						<td>
-							<select name="select" id="select_k1" class="xla_k">
-								<option value="Normal" selected>Normal</option>
-								<option value="Declined">Declined</option>
-							</select>
-						</td>
-						<td>
-							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
-						</td>
-					</tr>
-					<tr class="info">
-						<td>
-							赵六
-						</td>
-						<td>
-							4
-						</td>
-						<td>
-							<select name="select" id="select_k1" class="xla_k">
-								<option value="Normal" selected>Normal</option>
-								<option value="Declined">Declined</option>
-							</select>
-						</td>
-						<td>
-							&nbsp&nbsp&nbsp&nbsp<button onclick="window.open('ReaderInfo.html')" style="color:orange">详情</button>
-						</td>
-					</tr>
+<% } %>					
 					<tr class="warning">
 						<td>
 							<a href=# style="color:red">显示更多...</a>
@@ -127,6 +119,7 @@
 			</table>
 			<table class="table table-bordered table-hover">
 			<h1 style="text-align:center">图书管理</h1>
+
 			    <thead>
 					<tr>
 						<th>
@@ -175,6 +168,10 @@ $(".min").click(function() {
 							<button onclick="" style="color:orange">删除</button>
 						</td>
 					</tr>
+					
+					
+					
+					
 					<tr class="error">
 						<td>
 							X86 PC汇编语言设计
@@ -346,9 +343,9 @@ $(".min").click(function() {
 					</form>
 					<ul class="nav navbar-nav navbar-right">
 							<!-->用session显示输出名字<-->
-							 <li><a href="#">欢迎你:XXX</a></li>
-							 <li><a href="Index.html">我的信息</a></li>
-							 <li><a href="Index.html">注销</a></li>
+							 <li><a href="#">欢迎你:<%= admin.getAdminName() %></a></li>
+							 <li><a href="#">我的信息</a></li>
+							 <li><a href="#">注销</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -383,6 +380,59 @@ $(".min").click(function() {
         </div>
     </footer>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript"> 
+ $(document).ready(function(){ 
+	//for (var i=0;i<4;i++)
+	//{
+		
+		$('#'+'select'+1).change(function(){ 
+			
+			alert("已修改为"+$(this).children('option:selected').val()); 
+			
+			var p1=$(this).children('option:selected').val();//这就是selected的值 
+			
+			//var p2=$('#stuid').val();//获取本页面其他标签的值 
+			//var p2=$('#'+'stuid'+'i').val();//获取本页面其他标签的值 
+			var p2=$('#'+'stuid'+1).text().trim();
+			//window.location.href="index.jsp?param1="+p1+"&m2="+p2;//页面跳转并传参 
+			console.log(p1 + "  " + "   " + p2);
+			}) 
+			
+			
+		$('#'+'select'+2).change(function(){ 
+			
+			alert("已修改为"+$(this).children('option:selected').val()); 
+			
+			var p1=$(this).children('option:selected').val();//这就是selected的值 
+			
+			//var p2=$('#stuid').val();//获取本页面其他标签的值 
+			//var p2=$('#'+'stuid'+'i').val();//获取本页面其他标签的值 
+			var p2=$('#'+'stuid'+2).text().trim();
+			//window.location.href="index.jsp?param1="+p1+"&m2="+p2;//页面跳转并传参 
+			console.log(p1 + "  " + "   " + p2);
+			}) 
+	//}
+
+}) 
+
+/* $(document).ready(function(){ 
+	var len = $(".select").length; 
+	for (var i=0;i<10;i++)
+	{
+		($(".select").get(i)).change(function(){ 
+			alert("已修改为"+$(this).children('option:selected').val()); 
+			var p1=$(this).children('option:selected').val();//这就是selected的值 
+
+			//var p2=$('#stuid').val();//获取本页面其他标签的值 
+			var p2=$('.studi').get(i).val();//获取本页面其他标签的值 
+			window.location.href="xx.php?param1="+p1+"¶m2="+p2+"";//页面跳转并传参 
+			}) 
+		
+	}
+
+})  */
+</script> 
   </body>
 </html>
